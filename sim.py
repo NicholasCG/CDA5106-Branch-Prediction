@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+import numpy as np
 
 class Smith:
     def __init__(self, b):
@@ -103,6 +104,76 @@ class Hybrid:
         elif self.gshare_output != outcome and self.bimodal_output == outcome:
             self.chooser_table[self.idx] = max(self.chooser_table[self.idx] - 1, 0)
 
+class NNPredictor:
+    def __init__(self, m, n):
+        self.m = m
+        self.n = n
+        self.global_history = 0
+        
+        # todo figure out how this constructor needs to be happening
+        self.table = [Perceptron(n, 0.01) for i in range(1 << m)]
+
+    def predict(self, pc):
+        self.idx = (pc >> 2) & ((1 << self.m) - 1)
+        self.idx = self.idx ^ self.global_history
+
+        return self.table[self.idx].predict(self.global_history)
+
+    def update(self, outcome):
+        self.table[self.idx].train(outcome, self.global_history)
+        
+        # update global history
+        self.global_history = (self.global_history >> 1) | (int(outcome == "t") << (self.n - 1))
+
+class Perceptron:
+    def __init__(self, n, learn_rate):
+        self.n = n
+        self.weights = np.random.rand(n + 1)
+        self.learn_rate = learn_rate
+    
+    def linear(self, global_history):
+        inputs = [0] * self.n
+
+        for idx in range(self.n):
+            if global_history ^ (1 << idx) == 0:
+                inputs[idx] = -1
+            else:
+                inputs[idx] = 1
+        
+        weighted = (inputs @ self.weights[1:].T) + self.weights[0]
+        return weighted
+    
+    def predict(self, global_history):
+        inputs = [0] * self.n
+
+        for idx in range(self.n):
+            if global_history ^ (1 << idx) == 0:
+                inputs[idx] = -1
+            else:
+                inputs[idx] = 1
+        
+        z = self.linear(global_history)
+
+        if z > 0:
+            return "t"
+        else:
+            return "n"
+    
+    def train(self, outcome, global_history):
+        for idx in range(self.n):
+            if (global_history ^ (1 << idx) == 0):
+                # w = w + outcome (t) times bit at index of global history (1 or -1) 
+                if outcome == "t":
+                    self.weights[idx] -= 1
+                else:
+                    self.weights[idx] += 1
+            else:
+                if outcome == "t":
+                    self.weights[idx] += 1
+                else:
+                    self.weights[idx] -= 1
+
+
 if __name__ == "__main__":
     parser = ArgumentParser(description="Branch Prediction")
     parser.add_argument("predictor", type=str, help="Predictor type")
@@ -127,6 +198,9 @@ if __name__ == "__main__":
     elif args.predictor == "hybrid":
         predictor = Hybrid(int(args.arg1), int(args.arg2), int(args.arg3), int(args.arg4))
         trace_file = args.arg5
+    elif args.predictor == "perceptron":
+        predictor = NNPredictor(int(args.arg1), int(args.arg2))
+        trace_file = args.arg3
     else:
         print("Invalid predictor type")
         exit(1)
@@ -145,27 +219,29 @@ if __name__ == "__main__":
             if prediction != outcome:
                 number_mispredictions += 1
 
-    print("number of predictions: ", number_branches)
-    print("number of mispredictions: ", number_mispredictions)
-    print(f"misprediction rate: {(number_mispredictions / number_branches) * 100:.2f}%")
+    print("number of predictions:\t\t", number_branches)
+    print("number of mispredictions:\t", number_mispredictions)
+    print(f"misprediction rate:\t\t{(number_mispredictions / number_branches) * 100:.2f}%")
 
     if args.predictor == "smith":
         print(f"FINAL COUNTER CONTENT: {predictor.counter}")
     elif args.predictor == "bimodal":
         print("FINAL BIMODAL CONTENTS")
         for i, entry in enumerate(predictor.table):
-            print(f"{i} {entry}")
+            print(f"{i}\t{entry}")
     elif args.predictor == "gshare":
         print("FINAL GSHARE CONTENTS")
         for i, entry in enumerate(predictor.table):
-            print(f"{i} {entry}")
+            print(f"{i}\t{entry}")
     elif args.predictor == "hybrid":
         print("FINAL CHOOSER CONTENTS")
         for i, entry in enumerate(predictor.chooser_table):
-            print(f"{i} {entry}")
+            print(f"{i}\t{entry}")
         print("FINAL GSHARE CONTENTS")
         for i, entry in enumerate(predictor.gshare.table):
-            print(f"{i} {entry}")
+            print(f"{i}\t{entry}")
         print("FINAL BIMODAL CONTENTS")
         for i, entry in enumerate(predictor.bimodal.table):
-            print(f"{i} {entry}")
+            print(f"{i}\t{entry}")
+    elif args.predictor == "perceptron":
+       print("no contents for this one yet")
