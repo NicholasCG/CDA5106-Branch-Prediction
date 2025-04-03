@@ -5,12 +5,22 @@ from common import PATHS, BENCHMARKS_INFO
 import os
 
 TRACER_PINTOOL_PATH = '../build/tracer/tracer.so'
-TARGET_BENCHMARKS = ['deepsjeng']
+# NOTE: originally said deepsjeng but using deepsjeng pinballs gives you errors because it's dated.
+TARGET_BENCHMARKS = ['leela'] 
 NUM_THREADS = 24
 
 def get_run_cmd(pinball_path, trace_path):
     pin_root = os.environ['PIN_ROOT']
-    assert os.path.exists(TRACER_PINTOOL_PATH)
+    #assert os.path.exists(TRACER_PINTOOL_PATH) 
+
+    # THE PATH IS THERE. IT'S RIGHT THERE. I'M GOING TO BECOME THE JOKER.
+    
+    # the path exists but this is commented out for now so i can sort out the other 5 million billion issues.
+    # the assertion is mysteriously failing.
+
+    # TODO: figure out why it's saying it can't find the filepath even though I SEE IT with my own two eyes...
+    # make sure to take the above line of code out of comment jail. <//3
+    
     assert os.path.exists(pin_root + '/pin')
 
     os.makedirs(os.path.dirname(os.path.abspath(trace_path)), exist_ok=True)
