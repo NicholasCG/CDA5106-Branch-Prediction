@@ -1,0 +1,144 @@
+Benchmarking traces/originals/traces_orig_jpeg_trace.pt...
+GShare Misprediction Rate:  7.433400000000001
+DBN Misprediction Rate:  11.472249999999995
+LeNet Misprediction Rate:  13.3108
+AlexNet Misprediction Rate:  15.293400000000002
+DBN Misprediction Rate (Mimic):  8.774749999999997
+LeNet Misprediction Rate (Mimic):  16.174449999999997
+AlexNet Misprediction Rate (Mimic):  8.4055
+Benchmarking traces/originals/traces_orig_perl_trace.pt...
+GShare Misprediction Rate:  9.100050000000003
+DBN Misprediction Rate:  11.819849999999999
+LeNet Misprediction Rate:  12.703549999999996
+AlexNet Misprediction Rate:  14.821050000000003
+DBN Misprediction Rate (Mimic):  10.836400000000001
+LeNet Misprediction Rate (Mimic):  11.242099999999999
+AlexNet Misprediction Rate (Mimic):  9.9132
+Benchmarking traces/originals/traces_orig_gcc_trace.pt...
+GShare Misprediction Rate:  12.612250000000003
+DBN Misprediction Rate:  15.95415
+LeNet Misprediction Rate:  17.703349999999997
+AlexNet Misprediction Rate:  18.883399999999995
+DBN Misprediction Rate (Mimic):  13.677150000000005
+LeNet Misprediction Rate (Mimic):  14.32065
+AlexNet Misprediction Rate (Mimic):  14.427299999999999
+Benchmarking traces/train/traces_trace_01_Formatted.pt...
+GShare Misprediction Rate:  1.341352485167735
+DBN Misprediction Rate:  0.01848982122412135
+LeNet Misprediction Rate:  0.022433454422265964
+AlexNet Misprediction Rate:  0.024308296434505383
+DBN Misprediction Rate (Mimic):  0.887640718206717
+LeNet Misprediction Rate (Mimic):  0.30062121920330087
+AlexNet Misprediction Rate (Mimic):  0.6346663460040314
+Benchmarking traces/train/traces_trace_10_Formatted.pt...
+GShare Misprediction Rate:  12.976520636230681
+DBN Misprediction Rate:  0.42747128041120686
+LeNet Misprediction Rate:  0.5619511721476123
+AlexNet Misprediction Rate:  0.8141616550250919
+DBN Misprediction Rate (Mimic):  5.733297730955256
+LeNet Misprediction Rate (Mimic):  6.601105696582776
+AlexNet Misprediction Rate (Mimic):  5.8615269779042745
+Benchmarking traces/train/traces_trace_12_Formatted.pt...
+GShare Misprediction Rate:  11.832995917019861
+DBN Misprediction Rate:  1.159534802429396
+LeNet Misprediction Rate:  1.7688868174602024
+AlexNet Misprediction Rate:  2.395109648164606
+DBN Misprediction Rate (Mimic):  5.910550692553052
+LeNet Misprediction Rate (Mimic):  6.40059327012239
+AlexNet Misprediction Rate (Mimic):  6.364727615219179
+Benchmarking traces/valid/traces_trace_15_Formatted.pt...
+GShare Misprediction Rate:  13.137180055916065
+DBN Misprediction Rate:  4.554179534623481
+LeNet Misprediction Rate:  4.161359171806267
+AlexNet Misprediction Rate:  4.146551792148079
+DBN Misprediction Rate (Mimic):  7.803549765843143
+LeNet Misprediction Rate (Mimic):  7.98773172183731
+AlexNet Misprediction Rate (Mimic):  7.250639781967405
+Benchmarking traces/valid/traces_trace_13_Formatted.pt...
+GShare Misprediction Rate:  9.777804770653342
+DBN Misprediction Rate:  10.744871775405784
+LeNet Misprediction Rate:  10.688085513429801
+AlexNet Misprediction Rate:  9.701887308118618
+DBN Misprediction Rate (Mimic):  9.267457220509867
+LeNet Misprediction Rate (Mimic):  10.425471827029654
+AlexNet Misprediction Rate (Mimic):  8.602602450615693
+Benchmarking traces/valid/traces_trace_16_Formatted.pt...
+GShare Misprediction Rate:  11.606394580033296
+DBN Misprediction Rate:  3.6114096513421012
+LeNet Misprediction Rate:  3.45927044791553
+AlexNet Misprediction Rate:  3.339962241319361
+DBN Misprediction Rate (Mimic):  6.4306273754682675
+LeNet Misprediction Rate (Mimic):  6.702560271580915
+AlexNet Misprediction Rate (Mimic):  6.35762240469756
+Benchmarking traces/traces_trace_11_Formatted.pt...
+GShare Misprediction Rate:  12.891014242974098
+DBN Misprediction Rate:  2.400126226613186
+LeNet Misprediction Rate:  2.3090974190298708
+AlexNet Misprediction Rate:  2.3887172827294023
+DBN Misprediction Rate (Mimic):  6.431488685119213
+LeNet Misprediction Rate (Mimic):  6.952598265597787
+AlexNet Misprediction Rate (Mimic):  6.284204074449429
+Benchmarking traces/traces_trace_06_Formatted.pt...
+GShare Misprediction Rate:  10.552256974441644
+DBN Misprediction Rate:  13.2614531707007
+LeNet Misprediction Rate:  16.05692428361982
+AlexNet Misprediction Rate:  15.43123612219992
+DBN Misprediction Rate (Mimic):  12.671296857869097
+LeNet Misprediction Rate (Mimic):  14.170499048908747
+AlexNet Misprediction Rate (Mimic):  12.298075936747853
+Benchmarking traces/traces_trace_04_Formatted.pt...
+GShare Misprediction Rate:  1.0901349154465056
+DBN Misprediction Rate:  1.985079813544266
+LeNet Misprediction Rate:  2.0594543999637893
+AlexNet Misprediction Rate:  3.316605930527794
+DBN Misprediction Rate (Mimic):  1.885088201655516
+LeNet Misprediction Rate (Mimic):  2.21579281631501
+AlexNet Misprediction Rate (Mimic):  1.7854960236358353
+Benchmarking traces/traces_trace_02_Formatted.pt...
+GShare Misprediction Rate:  11.505093414707957
+DBN Misprediction Rate:  23.973586000943826
+LeNet Misprediction Rate:  27.274551423195813
+AlexNet Misprediction Rate:  30.730963741856588
+DBN Misprediction Rate (Mimic):  23.152256622388734
+LeNet Misprediction Rate (Mimic):  24.64524871296989
+AlexNet Misprediction Rate (Mimic):  26.857631699441253
+Benchmarking traces/traces_trace_03_Formatted.pt...
+GShare Misprediction Rate:  12.54141040491853
+DBN Misprediction Rate:  21.11678112001043
+LeNet Misprediction Rate:  20.24075634919772
+AlexNet Misprediction Rate:  22.72987464263434
+DBN Misprediction Rate (Mimic):  19.398032238538775
+LeNet Misprediction Rate (Mimic):  20.37931466923244
+AlexNet Misprediction Rate (Mimic):  18.320983896638566
+Benchmarking traces/traces_trace_07_Formatted.pt...
+GShare Misprediction Rate:  11.748494076660233
+DBN Misprediction Rate:  15.670708892814933
+LeNet Misprediction Rate:  11.742547197161358
+AlexNet Misprediction Rate:  10.915373426864527
+DBN Misprediction Rate (Mimic):  14.813738778362284
+LeNet Misprediction Rate (Mimic):  11.361451335941696
+AlexNet Misprediction Rate (Mimic):  8.897770663547854
+Benchmarking traces/traces_trace_05_Formatted.pt...
+GShare Misprediction Rate:  7.411678856327841
+DBN Misprediction Rate:  14.12421845199595
+LeNet Misprediction Rate:  12.734199048045515
+AlexNet Misprediction Rate:  12.298091115644228
+DBN Misprediction Rate (Mimic):  12.482511567739685
+LeNet Misprediction Rate (Mimic):  12.508051810206144
+AlexNet Misprediction Rate (Mimic):  10.510075128115826
+Benchmarking traces/traces_trace_08_Formatted.pt...
+GShare Misprediction Rate:  12.004109985172063
+DBN Misprediction Rate:  15.35436316764186
+LeNet Misprediction Rate:  13.225415459204704
+AlexNet Misprediction Rate:  12.148205573090676
+DBN Misprediction Rate (Mimic):  12.77153281527832
+LeNet Misprediction Rate (Mimic):  12.616546997188227
+AlexNet Misprediction Rate (Mimic):  9.493204373319553
+Benchmarking traces/traces_trace_09_Formatted.pt...
+GShare Misprediction Rate:  11.495339899769053
+DBN Misprediction Rate:  8.935403677569143
+LeNet Misprediction Rate:  8.813446891897236
+AlexNet Misprediction Rate:  8.257460268195382
+DBN Misprediction Rate (Mimic):  9.600323757534813
+LeNet Misprediction Rate (Mimic):  10.363709944894273
+AlexNet Misprediction Rate (Mimic):  9.464795932339543

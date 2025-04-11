@@ -1,0 +1,17 @@
+Epoch 1/5, Loss: 0.15011626588199173
+Validation Base Misprediction Rate: 10.81%
+Validation Loss: 0.18827969445375187, Misprediction Rate: 7.11%
+Epoch 2/5, Loss: 0.08107465052838166
+Validation Base Misprediction Rate: 11.19%
+Validation Loss: 0.1669437089366531, Misprediction Rate: 6.12%
+Epoch 3/5, Loss: 0.05255936403938235
+Validation Base Misprediction Rate: 11.71%
+Validation Loss: 0.1696035619128184, Misprediction Rate: 6.01%
+Epoch 4/5, Loss: 0.03824647899914425
+Validation Base Misprediction Rate: 12.23%
+Validation Loss: 0.1773143532834949, Misprediction Rate: 6.22%
+Epoch 5/5, Loss: 0.024689643196302742
+Validation Base Misprediction Rate: 12.34%
+Validation Loss: 0.18909957281673653, Misprediction Rate: 6.10%
+Best Misprediction Rate: 6.01%
+Best model loaded.

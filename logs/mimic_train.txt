@@ -1,0 +1,54 @@
+Training DBNLike model...
+Epoch 1/5, Loss: 0.2631513055900006
+Validation Base Misprediction Rate: 7.87%
+Validation Loss: 0.40102932926113594, Misprediction Rate: 7.97%
+Epoch 2/5, Loss: 0.1974197571806107
+Validation Base Misprediction Rate: 8.07%
+Validation Loss: 0.407836251834792, Misprediction Rate: 8.86%
+Epoch 3/5, Loss: 0.17992068873472208
+Validation Base Misprediction Rate: 7.43%
+Validation Loss: 0.40528847556165665, Misprediction Rate: 7.79%
+Epoch 4/5, Loss: 0.17060976048514365
+Validation Base Misprediction Rate: 7.83%
+Validation Loss: 0.42328971636124163, Misprediction Rate: 7.88%
+Epoch 5/5, Loss: 0.15424259908640706
+Validation Base Misprediction Rate: 7.79%
+Validation Loss: 0.430439427073867, Misprediction Rate: 7.83%
+Best Misprediction Rate: 7.79%
+Best model loaded.
+Training LeNetLike model...
+Epoch 1/5, Loss: 0.32195740657746097
+Validation Base Misprediction Rate: 7.90%
+Validation Loss: 0.4321579600973761, Misprediction Rate: 8.83%
+Epoch 2/5, Loss: 0.2416452760092298
+Validation Base Misprediction Rate: 7.77%
+Validation Loss: 0.411505013805926, Misprediction Rate: 8.43%
+Epoch 3/5, Loss: 0.20787764304087314
+Validation Base Misprediction Rate: 8.22%
+Validation Loss: 0.41148741994758137, Misprediction Rate: 8.19%
+Epoch 4/5, Loss: 0.1896087773968236
+Validation Base Misprediction Rate: 7.86%
+Validation Loss: 0.40416754624668005, Misprediction Rate: 8.02%
+Epoch 5/5, Loss: 0.17444678662641402
+Validation Base Misprediction Rate: 8.26%
+Validation Loss: 0.40969616736876924, Misprediction Rate: 8.37%
+Best Misprediction Rate: 8.02%
+Best model loaded.
+Training AlexNetLike model...
+Epoch 1/5, Loss: 0.27591886544364985
+Validation Base Misprediction Rate: 7.76%
+Validation Loss: 0.40403568666804174, Misprediction Rate: 7.89%
+Epoch 2/5, Loss: 0.20752165978035908
+Validation Base Misprediction Rate: 7.93%
+Validation Loss: 0.3979133508475509, Misprediction Rate: 7.56%
+Epoch 3/5, Loss: 0.19280091448389441
+Validation Base Misprediction Rate: 7.73%
+Validation Loss: 0.402505091003748, Misprediction Rate: 7.64%
+Epoch 4/5, Loss: 0.18365972596647046
+Validation Base Misprediction Rate: 7.89%
+Validation Loss: 0.4006652323565068, Misprediction Rate: 7.42%
+Epoch 5/5, Loss: 0.16908356541053618
+Validation Base Misprediction Rate: 7.98%
+Validation Loss: 0.4109641490574399, Misprediction Rate: 7.40%
+Best Misprediction Rate: 7.40%
+Best model loaded.

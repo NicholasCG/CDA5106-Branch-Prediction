@@ -1,0 +1,204 @@
+Best Bimodal predictor: 23 with misprediction rate: 8.98%
+Best Smith predictor: 4 with misprediction rate: 38.85%
+Best Gshare predictor: (12, 2) with misprediction rate: 9.68%
+
+
+    predictor = Gshare(12, 2)
+
+    traces = glob("/home/lumi/Git/CDA5106-Branch-Prediction/traces/originals/*.txt")
+
+
+    for trace_file in tqdm(traces, desc="Loading traces", unit="file", total=len(traces)):
+        with open(trace_file, 'r') as f:
+            trace = f.readlines()
+
+        
+        outcomes = []
+
+        for trace_line in tqdm(trace, desc="Processing traces", unit="line", total=len(trace)):
+            pc, outcome = trace_line.split()
+            pc = int(pc, 16)
+            prediction = predictor.predict(pc)
+            predictor.update(outcome)
+
+            outcomes.append((pc, prediction))
+
+        with open(f'gshare_trace_{trace_file.split("/")[-1]}', 'w') as f:
+            for pc, prediction in outcomes:
+                f.write(f"{pc} {prediction}\n")
+
+
+                
+
+    # # Grid search for the best parameters for each predictor
+
+    # traces = ["gcc_trace.txt", "perl_trace.txt", "jpeg_trace.txt"]
+
+    # trace_outcomes = []
+    # # For each trace, let's read in their program counter and outcome, and store them in a list
+    # for trace_file in traces:
+    #     trace_outcome = []
+
+    #     with open(trace_file, "r") as f:
+    #         for line in f:
+    #             pc, outcome = line.split()
+    #             pc = int(pc, 16)
+
+    #             trace_outcome.append((pc, outcome))
+    #             # print(pc)
+    #             # print(outcome)
+    #     trace_outcomes.append(trace_outcome)
+
+    # best_accuracy = 100
+
+    # # Smith
+    # best_value = 0
+
+    # for b in range(4,5):
+    #     predictor = Smith(b)
+
+    #     number_branches = 0
+    #     number_mispredictions = 0
+
+    #     misprediction_rate = test_traces(predictor, trace_outcomes)
+        
+    #     print(f"Smith predictor with {b} bits: {misprediction_rate:.2f}%")
+
+    #     if misprediction_rate < best_accuracy:
+    #         best_accuracy = misprediction_rate
+    #         best_value = b
+            
+    # print(f"Best Smith predictor: {best_value} with misprediction rate: {best_accuracy:.2f}%")
+    
+    # best_accuracy = 100
+    # best_value = 0
+    # # Bimodal
+    # for m in range(7, 24):
+    #     predictor = Bimodal(m)
+
+    #     misprediction_rate = test_traces(predictor, trace_outcomes)
+    #     print(f"Bimodal predictor with {m} bits: {misprediction_rate:.2f}%")
+    #     if misprediction_rate < best_accuracy:
+    #         best_accuracy = misprediction_rate
+    #         best_value = m
+
+    # print(f"Best Bimodal predictor: {best_value} with misprediction rate: {best_accuracy:.2f}%")
+
+    # best_accuracy = 100
+    # best_value = 0
+    # # Gshare
+    # for m in range(7, 13):
+    #     for n in range(2, m+1):
+    #         predictor = Gshare(m, n)
+
+    #         misprediction_rate = test_traces(predictor, trace_outcomes)
+    #         print(f"Gshare predictor with {m} bits and {n} bits: {misprediction_rate:.2f}%")
+    #         if misprediction_rate < best_accuracy:
+    #             best_accuracy = misprediction_rate
+    #             best_value = (m, n)
+    # print(f"Best Gshare predictor: {best_value} with misprediction rate: {best_accuracy:.2f}%")
+
+#     traces = glob("traces/Formatted Traces/*.txt")
+#     print(traces)
+
+#     trace_outcomes = []
+#     # For each trace, let's read in their program counter and outcome, and store them in a list
+#     for trace_file in traces:
+#         trace_outcome = []
+
+#         num_ts = 0
+#         num_total = 0
+
+#         with open(trace_file, "r") as f:
+#             for line in f:
+#                 pc, outcome = line.split()
+#                 pc = int(pc, 16)
+
+#                 trace_outcome.append((pc, outcome))
+
+#                 if outcome == "t":
+#                     num_ts += 1
+#                 num_total += 1
+
+#                 # print(pc)
+#                 # print(outcome)
+#         print(f"{trace_file.split('/')[-1]}: {num_ts / num_total * 100:.2f}%")
+#         trace_outcomes.append(trace_outcome)
+
+#     # print(len(trace_outcomes))
+
+# # Best Bimodal predictor: 23 with misprediction rate: 8.98%
+# # Best Smith predictor: 4 with misprediction rate: 38.85%
+# # Best Gshare predictor: (12, 2) with misprediction rate: 9.68%
+
+#     # For each predictor, save the prediction results for each trace and write them to a file
+
+
+
+#     for trace, trace_file in zip(trace_outcomes, traces):
+#         smith_predictions = []
+#         bimodal_predictions = []
+#         gshare_predictions = []
+
+#         bimodal = Bimodal(23)
+#         smith = Smith(4)
+#         gshare = Gshare(12, 2)
+
+#         smith_ts = 0
+#         bimodal_ts = 0
+#         gshare_ts = 0
+
+#         for pc, outcome in trace:
+#             smith_outcome = smith.predict(pc)
+#             bimodal_outcome = bimodal.predict(pc)
+#             gshare_outcome = gshare.predict(pc)
+
+#             smith_predictions.append(smith_outcome)
+#             bimodal_predictions.append(bimodal_outcome)
+#             gshare_predictions.append(gshare_outcome)
+
+#             smith.update(outcome)
+#             bimodal.update(outcome)
+#             gshare.update(outcome)
+
+#             if smith_outcome == "t":
+#                 smith_ts += 1
+#             if bimodal_outcome == "t":
+#                 bimodal_ts += 1
+#             if gshare_outcome == "t":
+#                 gshare_ts += 1
+
+#         print(f"Smith predictor: {smith_ts / len(trace) * 100:.2f}%")
+#         print(f"Bimodal predictor: {bimodal_ts / len(trace) * 100:.2f}%")
+#         print(f"Gshare predictor: {gshare_ts / len(trace) * 100:.2f}%")
+
+#         # Write the predictions to a file
+#         with open(f"traces/Predictions/smith_{trace_file.split('/')[-1]}", "w") as f:
+#             for pc, outcome in zip(trace, smith_predictions):
+#                 f.write(f"{pc[0]:02x} {outcome}\n")
+#         with open(f"traces/Predictions/bimodal_{trace_file.split('/')[-1]}", "w") as f:
+#             for pc, outcome in zip(trace, bimodal_predictions):
+#                 f.write(f"{pc[0]:02x} {outcome}\n")
+#         with open(f"traces/Predictions/gshare_{trace_file.split('/')[-1]}", "w") as f:
+#             for pc, outcome in zip(trace, gshare_predictions):
+#                 f.write(f"{pc[0]:02x} {outcome}\n")
+
+
+def test_traces(model, traces):
+    number_branches = 0
+    number_mispredictions = 0
+
+    num_positive = 0
+
+    for trace in traces:
+
+        for pc, outcome in trace:
+            number_branches += 1
+            prediction = model.predict(pc)
+            model.update(outcome)
+            if prediction != outcome:
+                number_mispredictions += 1
+
+        misprediction_rate = (number_mispredictions / number_branches) * 100
+
+    return misprediction_rate
