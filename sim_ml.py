@@ -176,11 +176,13 @@ if __name__ == "__main__":
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=512, shuffle=True)
     valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=512, shuffle=False)
 
+    # Go through all models and mimic_on
     for mimic_on in [False, True]:
         for model in [DBNLike, LeNetLike, AlexNetLike]:
             model = model()
             print(f"Model: {model.__class__.__name__}, Mimic: {mimic_on}")
 
+            # Training setup
             device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
             model.to(device)
             criterion = nn.BCELoss()

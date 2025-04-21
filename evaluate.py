@@ -200,6 +200,7 @@ if __name__ == "__main__":
     model_lenet_mimic.eval()
     model_alexnet_mimic.eval()
 
+    # Benchmark each trace
     for trace in benchmark_traces:
         print(f"Benchmarking {trace}...")
 
