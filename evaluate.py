@@ -167,7 +167,7 @@ class TracesDataset(torch.utils.data.Dataset):
 
 if __name__ == "__main__":
 
-    benchmark_traces = glob("fake/*.pt")
+    benchmark_traces = glob("traces/*/*.pt")
 
     model_dbn = DBNLike()
     model_lenet = LeNetLike()
