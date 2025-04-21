@@ -176,19 +176,6 @@ if __name__ == "__main__":
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=512, shuffle=True)
     valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=512, shuffle=False)
 
-    args = ArgumentParser()
-    args.add_argument("--model", type=str, default="dbn", help="Model to use: dbn, lenet, alexnet")
-    args = args.parse_args()
-
-    if args.model == "dbn":
-        model = DBNLike()
-    elif args.model == "lenet":
-        model = LeNetLike()
-    elif args.model == "alexnet":
-        model = AlexNetLike()
-    else:
-        raise ValueError("Invalid model name. Choose from: dbn, lenet, alexnet")
-
     for mimic_on in [False, True]:
         for model in [DBNLike, LeNetLike, AlexNetLike]:
             model = model()
@@ -208,6 +195,7 @@ if __name__ == "__main__":
             train_losses = []
             valid_losses = []
 
+            # Training phase
             for epoch in range(num_epochs):
                 model.train()
                 running_loss = 0.0
@@ -283,10 +271,10 @@ if __name__ == "__main__":
                 model.load_state_dict(best_model)
                 print("Best model loaded.")
                 # Save the model
-                file_name = f"new_best_model_{model.__class__.__name__}.pt"
+                file_name = f"models/new_best_model_{model.__class__.__name__}.pt"
 
                 if mimic_on:
-                    file_name = f"new_best_model_mimic_{model.__class__.__name__}.pt"
+                    file_name = f"models/new_best_model_mimic_{model.__class__.__name__}.pt"
 
                 torch.save(model.state_dict(), file_name)
 
